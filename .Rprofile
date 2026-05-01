@@ -13,7 +13,7 @@ if (interactive()) {
         )
       }
 
-      try(getNamespace("pak")$pkg_install("github::rolfmblindgren/roffeR/roffeR", ask = FALSE), silent = TRUE)
+      try(getNamespace("pak")$pkg_install("github::rolfmblindgren/roffeR", ask = FALSE), silent = TRUE)
     }
   }
 

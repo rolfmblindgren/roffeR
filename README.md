@@ -1,7 +1,6 @@
 # roffeR
 
-`roffeR` is a small personal R startup package that lives in the `roffeR/`
-subdirectory of this repository.
+`roffeR` is a small personal R startup package.
 
 It keeps the little things I want every session to have:
 
@@ -15,13 +14,13 @@ It keeps the little things I want every session to have:
 From this repository:
 
 ```r
-pak::local_install("roffeR")
+pak::local_install(".")
 ```
 
 Or from GitHub:
 
 ```r
-pak::pkg_install("rolfmblindgren/roffeR/roffeR")
+pak::pkg_install("rolfmblindgren/roffeR")
 ```
 
 ## Use

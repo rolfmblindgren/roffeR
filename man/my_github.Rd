@@ -3,7 +3,7 @@
 \title{Install personal GitHub packages with pak}
 \usage{
 my_github(
-  pkgs = c("rolfmblindgren/talection/talection", "rolfmblindgren/neopiR"),
+  pkgs = c("github::rolfmblindgren/talection/talection", "github::rolfmblindgren/neopiR"),
   ask = FALSE
 )
 }
