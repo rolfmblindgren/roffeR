@@ -40,5 +40,3 @@ my_github()
 
 The package is intentionally small. It is meant to be easy to keep in sync with
 the way I actually work, not to become a general framework.
-
-# roffeR
