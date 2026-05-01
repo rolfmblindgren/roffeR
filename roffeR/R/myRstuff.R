@@ -38,11 +38,7 @@ my_github <- function(pkgs = c(
   pkg_install(pkgs, ask = ask)
 }
 
-startup <- function() {
-  use_cran_mirror()
-  invisible(TRUE)
-}
-
 # Local Variables:
 # mode: R
 # End:
+

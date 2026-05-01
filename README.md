@@ -1,6 +1,7 @@
 # roffeR
 
-`roffeR` is a small personal R startup package.
+`roffeR` is a small personal R startup package that lives in the `roffeR/`
+subdirectory of this repository.
 
 It keeps the little things I want every session to have:
 
@@ -17,16 +18,25 @@ From this repository:
 pak::local_install("roffeR")
 ```
 
-Or from source:
+Or from GitHub:
 
 ```r
-R CMD INSTALL roffeR
+pak::pkg_install("rolfmblindgren/roffeR/roffeR")
 ```
 
 ## Use
 
-After installation, the top-level `.Rprofile` loads the package in interactive
-sessions. That makes the custom `q()` available immediately.
+To load the helpers in your own sessions, add this to your home
+`~/.Rprofile`:
+
+```r
+if (interactive() && requireNamespace("roffeR", quietly = TRUE)) {
+  library(roffeR)
+}
+```
+
+The repository also keeps the same line in its own `.Rprofile` as a working
+template when you use the checkout directly.
 
 If you want to use the helpers directly:
 

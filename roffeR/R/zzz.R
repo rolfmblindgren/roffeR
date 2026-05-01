@@ -1,7 +1,10 @@
 .onAttach <- function(libname, pkgname) {
-  startup()
+  repos <- getOption("repos")
+  repos["CRAN"] <- "https://cloud.r-project.org"
+  options(repos = repos)
 }
 
 # Local Variables:
 # mode: R
 # End:
+

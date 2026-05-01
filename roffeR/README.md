@@ -17,16 +17,22 @@ From this repository:
 pak::local_install("roffeR")
 ```
 
-Or from source:
+Or from GitHub:
 
 ```r
-R CMD INSTALL roffeR
+pak::pkg_install("rolfmblindgren/roffeR/roffeR")
 ```
 
 ## Use
 
-After installation, the top-level `.Rprofile` loads the package in interactive
-sessions. That makes the custom `q()` available immediately.
+To load the helpers in your own sessions, add this to your home
+`~/.Rprofile`:
+
+```r
+if (interactive() && requireNamespace("roffeR", quietly = TRUE)) {
+  library(roffeR)
+}
+```
 
 If you want to use the helpers directly:
 
@@ -40,3 +46,4 @@ my_github()
 
 The package is intentionally small. It is meant to be easy to keep in sync with
 the way I actually work, not to become a general framework.
+
