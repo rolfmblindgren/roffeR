@@ -19,8 +19,8 @@ q <- function(save = "no", status = 0, runLast = TRUE) {
 }
 
 my_github <- function(pkgs = c(
-  "rolfmblindgren/talection/talection",
-  "rolfmblindgren/neopiR"
+  "github::rolfmblindgren/talection/talection",
+  "github::rolfmblindgren/neopiR"
 ), ask = FALSE) {
   if (!requireNamespace("pak", quietly = TRUE)) {
     utils::install.packages(
@@ -34,6 +34,12 @@ my_github <- function(pkgs = c(
     )
   }
 
+  pkgs <- ifelse(
+    grepl("^github::", pkgs),
+    pkgs,
+    paste0("github::", pkgs)
+  )
+
   pkg_install <- getNamespace("pak")$pkg_install
   pkg_install(pkgs, ask = ask)
 }
@@ -41,4 +47,3 @@ my_github <- function(pkgs = c(
 # Local Variables:
 # mode: R
 # End:
-

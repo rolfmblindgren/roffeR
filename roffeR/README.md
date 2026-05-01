@@ -20,7 +20,7 @@ pak::local_install("roffeR")
 Or from GitHub:
 
 ```r
-pak::pkg_install("rolfmblindgren/roffeR/roffeR")
+pak::pkg_install("github::rolfmblindgren/roffeR/roffeR")
 ```
 
 ## Use
@@ -46,4 +46,3 @@ my_github()
 
 The package is intentionally small. It is meant to be easy to keep in sync with
 the way I actually work, not to become a general framework.
-
