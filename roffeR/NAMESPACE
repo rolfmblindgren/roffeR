@@ -1,0 +1,6 @@
+export(q)
+export(type)
+export(use_cran_mirror)
+export(my_github)
+export(startup)
+

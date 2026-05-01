@@ -1,0 +1,47 @@
+use_cran_mirror <- function() {
+  repos <- getOption("repos")
+  repos["CRAN"] <- "https://cloud.r-project.org"
+  options(repos = repos)
+  invisible(repos)
+}
+
+type <- function(s) {
+  libs <- .libPaths()
+  hits <- libs[vapply(libs, function(lib) {
+    dir.exists(file.path(lib, s))
+  }, logical(1))]
+
+  if (length(hits) == 0L) FALSE else hits
+}
+
+q <- function(save = "no", status = 0, runLast = TRUE) {
+  base::q(save = save, status = status, runLast = runLast)
+}
+
+my_github <- function(pkgs = c(
+  "rolfmblindgren/talection/talection",
+  "rolfmblindgren/neopiR"
+), ask = FALSE) {
+  if (!requireNamespace("pak", quietly = TRUE)) {
+    install.packages(
+      "pak",
+      repos = sprintf(
+        "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
+        .Platform$pkgType,
+        R.Version()$os,
+        R.Version()$arch
+      )
+    )
+  }
+
+  pak::pkg_install(pkgs, ask = ask)
+}
+
+startup <- function() {
+  use_cran_mirror()
+  invisible(TRUE)
+}
+
+# Local Variables:
+# mode: R
+# End:
