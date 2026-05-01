@@ -2,10 +2,10 @@ Package: roffeR
 Type: Package
 Title: Personal R Startup Helpers
 Version: 0.1.0
-Authors@R: person("Rolf", "Mblindgren", role = c("aut", "cre"))
+Authors@R: person("Rolf", "Mblindgren", email = "roffe@example.com", role = c("aut", "cre"))
 Description: Small helpers for interactive R sessions, including a safer q()
     default and a few personal convenience wrappers.
 License: GPL-3
 Encoding: UTF-8
+Suggests: pak
 RoxygenNote: 7.3.2
-

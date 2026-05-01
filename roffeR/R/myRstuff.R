@@ -23,7 +23,7 @@ my_github <- function(pkgs = c(
   "rolfmblindgren/neopiR"
 ), ask = FALSE) {
   if (!requireNamespace("pak", quietly = TRUE)) {
-    install.packages(
+    utils::install.packages(
       "pak",
       repos = sprintf(
         "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
@@ -34,7 +34,8 @@ my_github <- function(pkgs = c(
     )
   }
 
-  pak::pkg_install(pkgs, ask = ask)
+  pkg_install <- getNamespace("pak")$pkg_install
+  pkg_install(pkgs, ask = ask)
 }
 
 startup <- function() {
