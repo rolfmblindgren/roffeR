@@ -19,8 +19,10 @@ q <- function(save = "no", status = 0, runLast = TRUE) {
 }
 
 my_github <- function(pkgs = c(
-  "github::rolfmblindgren/talection/talection",
-  "github::rolfmblindgren/neopiR"
+  "rolfmblindgren/talection/talection",
+  "rolfmblindgren/neopiR",
+  "rolfmblindgren/shinyseo",
+  "rolfmblindgren/grendelshiny"
 ), ask = FALSE) {
   if (!requireNamespace("pak", quietly = TRUE)) {
     utils::install.packages(
@@ -33,6 +35,22 @@ my_github <- function(pkgs = c(
       )
     )
   }
+
+  pat <- Sys.getenv("GITHUB_PAT", unset = "")
+  if (!nzchar(pat)) {
+    message("GITHUB_PAT is not set; skipping GitHub installs.")
+    return(invisible(FALSE))
+  }
+
+  old_pat <- Sys.getenv("GITHUB_PAT", unset = NA_character_)
+  on.exit({
+    if (is.na(old_pat)) {
+      Sys.unsetenv("GITHUB_PAT")
+    } else {
+      Sys.setenv(GITHUB_PAT = old_pat)
+    }
+  }, add = TRUE)
+  Sys.setenv(GITHUB_PAT = pat)
 
   pkgs <- ifelse(
     grepl("^github::", pkgs),
